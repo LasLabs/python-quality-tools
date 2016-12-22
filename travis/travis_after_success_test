@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+coveralls || true
+codecov || true
+codeclimate-test-reporter || true

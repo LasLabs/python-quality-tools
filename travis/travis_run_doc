@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+set -e
+
+sphinx-apidoc -f -F -P -a -o docs/ ./ tests/* setup.py
+
+cp ${HOME}/python-quality-tools/sphinx/* ./docs
+cd ./docs/
+
+make html
