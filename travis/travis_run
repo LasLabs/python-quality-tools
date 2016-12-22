@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+if [ "${LINT_CHECK}" = "1" ]; 
+then
+
+  . travis_run_lint
+
+elif [ "${TESTS}" = "1" ]; 
+then
+
+  . travis_run_test
+
+elif [ "${DOCS}" = "1" ]; 
+then
+
+  if [ "${TRAVIS_BRANCH}" = "${BRANCH_PROD:=master}" ] \
+  && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
+  then
+
+    . travis_run_doc
+
+  fi
+
+fi

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+pip install coveralls
+pip install --user codecov
+pip install codeclimate-test-reporter
+
+if [ -f test_requirements.txt ]; 
+then
+  pip install -r ./test_requirements.txt
+  
+elif [ -f test_requirements.txt ];
+then
+  pip install -r ./requirements.txt
+fi
+
+pip install .

@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+# Clone the docs branch outside of the repo
+cd $HOME
+git clone -b "${BRANCH_DOC:=gh-pages}" "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" gh-pages
+
+# Change into docs branch, remove all existing files
+cd gh-pages
+git rm -rf ./*
+
+# Copy Documentation HTML from main branch to root of this one.
+cp -R $TRAVIS_BUILD_DIR/docs/_build/html/* ./
+
+# Add a nojekyll to allow Github parse
+touch ./.nojekyll
+
+# Update git configuration in order to push
+if [ "$1" != "dry" ]; then
+    # Update git config.
+    git config user.name "LasLabs Bot"
+    git config user.email "support@laslabs.com"
+fi
+
+# Add and commit changes.
+git add -A .
+git commit -m "[ci skip] AutoDoc commit for $TRAVIS_COMMIT."
+
+if [ "$1" != "dry" ]; then
+    # -q is very important to not leak GH_TOKEN
+    git push -q origin gh-pages
+fi
