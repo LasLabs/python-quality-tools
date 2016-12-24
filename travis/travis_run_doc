@@ -5,7 +5,7 @@
 
 set -e
 
-sphinx-apidoc -f -F -P -a -o docs/ ./ tests/* setup.py
+sphinx-apidoc -f -F -P -a -o docs/ ./
 
 cp ${HOME}/python-quality-tools/sphinx/* ./docs
 cd ./docs/

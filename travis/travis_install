@@ -26,7 +26,7 @@ then
 
   . travis_install_test
 
-elif [ "${DOCS}" = "1" ]; 
+elif [ "${DOCS}" = "1" ] || [ "${PYPI}" = "1" ];
 then
 
   if [ "${TRAVIS_BRANCH}" = "${BRANCH_PROD:=master}" ] \

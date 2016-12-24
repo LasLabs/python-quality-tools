@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Copyright 2016 LasLabs Inc.
+# License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
+
+pip install twine
+
+echo "[pypi]
+repository: https://pypi.python.org/pypi
+username: laslabs
+password: $PYPI_PASSWORD" > $HOME/.pypirc
+
+python setup.py sdist bdist_wheel
+
+twine upload --config $HOME/.pypirc -c "Built from commit $TRAVIS_COMMIT" dist/*
