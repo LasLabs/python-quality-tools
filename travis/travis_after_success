@@ -24,4 +24,15 @@ then
 
   fi
 
+elif [ "${PYPI}" = "1" ];
+then
+
+  if [ "${TRAVIS_BRANCH}" = "${BRANCH_PROD:=master}" ] \
+  && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
+  then
+
+    . travis_after_success_pypi
+
+  fi
+
 fi

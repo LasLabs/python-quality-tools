@@ -1,31 +1,42 @@
 addons:
-    apt:
-        packages:
-            - expect-dev  # provides unbuffer utility
+  apt:
+    packages:
+      - expect-dev  # provides unbuffer utility
 
 language: python
 
 python:
-    - "2.7"
+  - "2.7"
 
 virtualenv:
-    system_site_packages: true
+  system_site_packages: true
 
 env:
-    global:
-        - TESTS="0" LINT_CHECK="0" DOCS="0" VERSION="0.1.0" RELEASE="0.1.1" PROJECT="My Project" BRANCH_PROD="master" BRANCH_DOC="gh-pages"
-    matrix:
-        - LINT_CHECK="1"
-        - TESTS="1"
-        - DOCS="1"
+  global:
+    - PROJECT="My Project"
+    - VERSION="0.1.0"
+    - RELEASE="0.1.1"
+    - BRANCH_PROD="master"
+    - BRANCH_DOC="gh-pages"
+    - TESTS="0"
+    - LINT_CHECK="0"
+    - DOCS="0"
+    - PYPI="0"
+    # Generate this per repo with the following:
+    #   travis encrypt 'PYPI_PASSWORD="$PYPI_PASSWORD"'-r LasLabs/repo-name
+    - secure: "$PYPI_TOKEN"
+  matrix:
+    - TESTS="1"
+    - PYPI="1"
+    - DOCS="1"
 
 install:
-    - git clone --depth=1 https://github.com/LasLabs/python-quality-tools.git ${HOME}/python-quality-tools
-    - export PATH=${HOME}/python-quality-tools/travis:${PATH}
-    - travis_install
+  - git clone --depth=1 https://github.com/LasLabs/python-quality-tools.git ${HOME}/python-quality-tools
+  - export PATH=${HOME}/python-quality-tools/travis:${PATH}
+  - travis_install
 
 script:
-    - travis_run
+  - travis_run
 
 after_success:
-    - travis_after_success
+  - travis_after_success
