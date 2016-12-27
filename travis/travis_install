@@ -3,7 +3,11 @@
 # Copyright 2016 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
+# Fix Cert errors
+pip install requests[security]
+
 # Always install package and requirements
+
 if [ -f test_requirements.txt ]; 
 then
   pip install -r ./test_requirements.txt
