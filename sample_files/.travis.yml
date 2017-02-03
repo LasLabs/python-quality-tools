@@ -13,9 +13,9 @@ virtualenv:
 
 env:
   global:
-    - PROJECT="My Project"
-    - VERSION="0.1.0"
-    - RELEASE="0.1.1"
+    - PROJECT="{{ Project Name }}"
+    - VERSION="{{ Version }}"
+    - RELEASE="{{ Release }}"
     - BRANCH_PROD="master"
     - BRANCH_DOC="gh-pages"
     - TESTS="0"
