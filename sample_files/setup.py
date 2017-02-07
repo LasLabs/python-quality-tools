@@ -9,8 +9,8 @@ from unittest import TestLoader, TextTestRunner
 from os import environ, path
 
 
-PROJECT = 'my-project'
-SHORT_DESC = 'Short description of the project'
+PROJECT = '{{ Repo Slug }}'
+SHORT_DESC = '{{ Project Description }}'
 README_FILE = 'README.rst'
 
 CLASSIFIERS = [
@@ -58,7 +58,7 @@ class FailTestException(Exception):
 
 
 class Tests(Command):
-    ''' Run test & coverage, save reports as XML '''
+    """ Run test & coverage, save reports as XML """
 
     user_options = []  # < For Command API compatibility
 
