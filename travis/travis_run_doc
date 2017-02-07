@@ -5,7 +5,12 @@
 
 set -e
 
-sphinx-apidoc -f -F -P -a -o docs/ ./
+if [ "${DOCS_SEPARATE_PAGE}" = "1" ];
+then
+    sphinx-apidoc -f -F -P -a --separate -o docs/ ./;
+else
+    sphinx-apidoc -f -F -P -a -o docs/ ./;
+fi
 
 cp ${HOME}/python-quality-tools/sphinx/* ./docs
 cd ./docs/
