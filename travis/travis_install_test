@@ -4,5 +4,5 @@
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 pip install coveralls
-pip install --user codecov
+pip install codecov
 pip install codeclimate-test-reporter
