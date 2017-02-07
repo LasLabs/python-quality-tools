@@ -21,6 +21,7 @@ env:
     - TESTS="0"
     - LINT_CHECK="0"
     - DOCS="0"
+    - DOCS_PY_VERSION="2.7"
     - PYPI="0"
     # Generate this per repo with the following:
     #   travis encrypt 'PYPI_PASSWORD="$PYPI_PASSWORD"'-r LasLabs/repo-name

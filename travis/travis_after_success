@@ -17,7 +17,8 @@ elif [ "${DOCS}" = "1" ];
 then
 
   if [ "${TRAVIS_BRANCH}" = "${BRANCH_PROD:=master}" ] \
-  && [ "${TRAVIS_PULL_REQUEST}" = "false" ];
+  && [ "${TRAVIS_PULL_REQUEST}" = "false" ] \
+  && [ "${TRAVIS_PYTHON_VERSION}" = "${DOCS_PY_VERSION:=2.7}" ];
   then
 
     . travis_after_success_doc
