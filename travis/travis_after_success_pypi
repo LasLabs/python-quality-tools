@@ -7,8 +7,8 @@ pip install twine
 
 echo "[pypi]
 repository: https://pypi.python.org/pypi
-username: laslabs
-password: $PYPI_PASSWORD" > $HOME/.pypirc
+username: ${PYPI_USER:=laslabs}
+password: ${PYPI_PASSWORD}" > $HOME/.pypirc
 
 python setup.py sdist bdist_wheel
 
