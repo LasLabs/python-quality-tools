@@ -5,9 +5,22 @@
 
 set -e
 
+# Allow for override of the generated files
+if [ -d ./docs ]; then
+    mkdir static_docs/
+    cp -R docs/* static_docs/
+fi
+
 sphinx-apidoc -f -F -P -a -o docs/ ./
 
 cp ${HOME}/python-quality-tools/sphinx/* ./docs
+
+# Copy back the overridden files
+if [ -d ./static_docs ]; then
+    cp -R static_docs/* docs/
+    rm -Rf static_docs/
+fi
+
 cd ./docs/
 
 make html
