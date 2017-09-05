@@ -6,7 +6,6 @@
 pip install twine
 
 echo "[pypi]
-repository: https://pypi.python.org/pypi
 username: ${PYPI_USER:=laslabs}
 password: ${PYPI_PASSWORD}" > $HOME/.pypirc
 
