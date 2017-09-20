@@ -3,7 +3,7 @@
 # Copyright 2016 LasLabs Inc.
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
-if [ "${LINT_CHECK}" = "1" ]; 
+if [ "${LINT_CHECK}" = "1" ] || [ "${LINT}" = "1" ];
 then
 
   . travis_after_success_lint

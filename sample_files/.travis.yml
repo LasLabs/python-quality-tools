@@ -19,7 +19,7 @@ env:
     - BRANCH_PROD="master"
     - BRANCH_DOC="gh-pages"
     - TESTS="0"
-    - LINT_CHECK="0"
+    - LINT="0"
     - DOCS="0"
     - DOCS_PY_VERSION="2.7"
     - PYPI="0"
@@ -30,6 +30,7 @@ env:
     - TESTS="1"
     - PYPI="1"
     - DOCS="1"
+    - LINT="1"
 
 install:
   - git clone --depth=1 https://github.com/LasLabs/python-quality-tools.git ${HOME}/python-quality-tools

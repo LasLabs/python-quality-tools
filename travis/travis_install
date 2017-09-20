@@ -20,7 +20,7 @@ fi
 pip install .
 
 # Now do the independent actions
-if [ "${LINT_CHECK}" = "1" ]; 
+if [ "${LINT_CHECK}" = "1" ] || [ "${LINT}" = "1" ];
 then
 
   . travis_install_lint
