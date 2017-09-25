@@ -23,6 +23,13 @@ env:
     - DOCS="0"
     - DOCS_PY_VERSION="2.7"
     - PYPI="0"
+    # Use this to map to external Sphinx sources. Format is a comma separated
+    # list of name, uri pairs - or just a URI. In the event of just URIs, the
+    # old format will be used. Example:
+    #  INTERSPHINX="requests=http://docs.python-requests.org/"
+    # would be the same as:
+    #   INTERSPHINX="http://docs.python-requests.org/"
+    - INTERSPHINX=""
     # Generate this per repo with the following:
     #   travis encrypt 'PYPI_PASSWORD="$PYPI_PASSWORD"'-r LasLabs/repo-name
     - secure: "$PYPI_TOKEN"

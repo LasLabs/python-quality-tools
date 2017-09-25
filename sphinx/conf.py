@@ -214,5 +214,17 @@ html_sidebars = {
 # Output file base name for HTML help builder.
 htmlhelp_basename = '%sdoc' % project.replace(' ', '')
 
-# Example configuration for intersphinx: refer to the Python standard library.
-intersphinx_mapping = {'https://docs.python.org/': None}
+# Intersphinx. Always include at least Python
+intersphinx_mapping = {'python': ('https://docs.python.org/', None)}
+
+if os.environ.get('INTERSPHINX'):
+    for line in os.environ['INTERSPHINX'].split(','):
+        line = line.strip()
+        if not line:
+            continue
+        split = line.split('=', 1)
+        if len(split) == 2:
+            name, uri = split
+            intersphinx_mapping[name] = (uri, None)
+        else:
+            intersphinx_mapping[split[0]] = None
