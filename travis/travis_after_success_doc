@@ -20,8 +20,8 @@ touch ./.nojekyll
 # Update git configuration in order to push
 if [ "$1" != "dry" ]; then
     # Update git config.
-    git config user.name "LasLabs Bot"
-    git config user.email "support@laslabs.com"
+    git config user.name "${GH_NAME:=LasLabs Bot}"
+    git config user.email "${GH_EMAIL:=support@laslabs.com}"
 fi
 
 # Add and commit changes.
